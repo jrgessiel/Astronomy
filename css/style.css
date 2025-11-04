@@ -160,7 +160,7 @@ body {
 }
 
 .timeline-item:nth-child(odd)::after {
-    right: -0.6rem;
+    right: 0.6rem;
 }
 
 .timeline-item:nth-child(even) {
@@ -168,7 +168,7 @@ body {
 }
 
 .timeline-item:nth-child(even)::after {
-    left: -0.6rem;
+    left: 0.6rem;
 }
 
 .timeline-item__link {
@@ -344,4 +344,5 @@ html:has(.modal-overlay:target) {
         right: auto;
         transform: none;
     }
+
 }
