@@ -1,0 +1,347 @@
+/* ==========================================================================
+   1. CORE & ESTILOS GLOBAIS
+   ========================================================================== */
+
+@charset "UTF-8";
+
+:root {
+    /* Paleta de Cores */
+    --color-bg: #ffffff;
+    --color-surface: #f8f8f8;
+    --color-border: #eaeaea;
+    --color-text-primary: #1f1f1f;
+    --color-text-secondary: #6b6b6b;
+    --color-accent: #007bff;
+
+    /* Tipografia */
+    --font-family-base: "Poppins", sans-serif;
+
+    /* Animações e Transições */
+    --transition-fast: 0.2s ease;
+
+    /* Unidades e Espaçamentos */
+    --border-radius: 4px;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+    /* Garante que 1rem = 10px */
+    scroll-behavior: smooth;
+}
+
+/* Solução para "sticky footer" (rodapé fixo no final da tela) */
+body {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+    font-family: var(--font-family-base);
+    font-size: 1.6rem;
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+    background-color: var(--color-bg);
+}
+
+/* Classe utilitária para acessibilidade (a11y) */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* ==========================================================================
+   2. LAYOUT & COMPONENTES
+   ========================================================================== */
+
+/* --- Layout --- */
+.site-header {
+    padding-block: 2rem;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.site-header__logo {
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    text-decoration: none;
+}
+
+.site-content {
+    padding-block: 8rem;
+}
+
+.container {
+    max-width: 114rem;
+    margin-inline: auto;
+    padding-inline: 2rem;
+}
+
+/* --- Componente: Cabeçalho de Seção --- */
+.section-header {
+    text-align: center;
+    margin-bottom: 8rem;
+}
+
+.section-header__subtitle {
+    font-size: 1.4rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    color: var(--color-text-secondary);
+}
+
+.section-header__title {
+    font-size: clamp(3.5rem, 5vw, 5rem);
+    color: var(--color-text-primary);
+    margin-top: 0.5rem;
+}
+
+.section-header__intro {
+    max-width: 60ch;
+    /* Melhora a legibilidade do texto */
+    margin-inline: auto;
+    margin-top: 2rem;
+    font-size: 1.8rem;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+/* --- Componente: Timeline --- */
+.timeline {
+    position: relative;
+    max-width: 80rem;
+    margin-inline: auto;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 2px;
+    background-color: var(--color-border);
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    position: relative;
+    width: 50%;
+    padding-inline: 4rem;
+    margin-bottom: 5rem;
+}
+
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    top: 0.5rem;
+    width: 1.2rem;
+    height: 1.2rem;
+    border-radius: 50%;
+    background-color: var(--color-bg);
+    border: 2px solid var(--color-border);
+    z-index: 1;
+}
+
+.timeline-item:nth-child(odd) {
+    left: 0;
+}
+
+.timeline-item:nth-child(odd)::after {
+    right: -0.6rem;
+}
+
+.timeline-item:nth-child(even) {
+    left: 50%;
+}
+
+.timeline-item:nth-child(even)::after {
+    left: -0.6rem;
+}
+
+.timeline-item__link {
+    display: block;
+    padding: 2.5rem;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    color: inherit;
+    transition: all var(--transition-fast);
+}
+
+.timeline-item__link:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    border-color: var(--color-accent);
+}
+
+.timeline-item__year {
+    display: inline-block;
+    font-size: 1.3rem;
+    font-weight: 600;
+    background-color: var(--color-border);
+    padding: 0.4rem 0.8rem;
+    border-radius: 5rem;
+    margin-bottom: 1.5rem;
+}
+
+.timeline-item__title {
+    font-size: 2rem;
+    color: var(--color-text-primary);
+    margin-bottom: 0.8rem;
+}
+
+.timeline-item__description {
+    font-size: 1.5rem;
+    line-height: 1.6;
+}
+
+/* --- Componente: Modal (Apenas CSS com a pseudo-classe :target) --- */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--transition-fast);
+}
+
+.modal-overlay:target {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal__dialog {
+    background-color: var(--color-bg);
+    width: 90%;
+    max-width: 65rem;
+    border-radius: var(--border-radius);
+    transform: scale(0.95);
+    transition: all var(--transition-fast);
+}
+
+.modal-overlay:target .modal__dialog {
+    transform: scale(1);
+}
+
+.modal__close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.4rem;
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    line-height: 1;
+}
+
+.modal__content {
+    padding: 4rem;
+    overflow-y: auto;
+}
+
+.modal__content h2 {
+    font-size: 2.8rem;
+    color: var(--color-text-primary);
+    margin-bottom: 2rem;
+}
+
+.modal__content p {
+    font-size: 1.6rem;
+    margin-bottom: 2rem;
+    text-align: justify;
+}
+
+.modal__footer {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-border);
+    font-size: 1.4rem;
+}
+
+/* Impede a rolagem do body quando o modal está aberto */
+html:has(.modal-overlay:target) {
+    overflow: hidden;
+}
+
+/* --- Componente: CTA Final --- */
+.final-cta {
+    text-align: center;
+    padding-block: 4rem;
+}
+
+.final-cta p {
+    font-size: 1.8rem;
+}
+
+.final-cta a {
+    color: var(--color-accent);
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: border-color var(--transition-fast);
+}
+
+.final-cta a:hover {
+    border-color: var(--color-accent);
+}
+
+/* ==========================================================================
+   3. RESPONSIVIDADE
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    .site-content {
+        padding-block: 6rem;
+    }
+
+    .section-header__intro {
+        font-size: 1.6rem;
+    }
+
+    .modal__content {
+        padding: 3rem;
+    }
+
+    /* Timeline: layout em coluna única */
+    .timeline::before {
+        left: 2rem;
+        transform: none;
+    }
+
+    .timeline-item,
+    .timeline-item:nth-child(even) {
+        width: 100%;
+        left: 0;
+        padding-left: 6rem;
+        padding-right: 2rem;
+    }
+
+    .timeline-item:nth-child(odd)::after,
+    .timeline-item:nth-child(even)::after {
+        left: 1.4rem;
+        right: auto;
+        transform: none;
+    }
+}

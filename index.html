@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marcos da Ciência - Uma Linha do Tempo Interativa</title>
+    <meta name="author" content="Gessiel Junior">
+    <meta name="description"
+        content="Explore marcos históricos da ciência e da astronomia em uma linha do tempo interativa e minimalista.">
+    <link rel="icon" href="assets/icons/system-icon.png" type="image/x-icon">
+    <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container">
+            <a href="https://jrgessiel.github.io/GESSIELdemon-profile" class="site-header__logo">GESSIELdemon</a>
+        </div>
+    </header>
+
+    <main class="site-content">
+        <section class="timeline-section">
+            <div class="container">
+                <header class="section-header">
+                    <p class="section-header__subtitle">Uma Jornada Pelas Descobertas</p>
+                    <h1 class="section-header__title">Marcos da Ciência</h1>
+                    <p class="section-header__intro">
+                        Da poeira estelar que nos formou às tecnologias que moldam nosso futuro, explore alguns dos
+                        momentos decisivos que iluminaram nosso entendimento
+                        do universo.
+                    </p>
+                </header>
+
+                <div class="timeline">
+                    <article class="timeline-item">
+                        <a href="#astronomy-modal" class="timeline-item__link">
+                            <span class="timeline-item__year">Conceito</span>
+                            <h2 class="timeline-item__title">Astronomia</h2>
+                            <p class="timeline-item__description">Uma ciência milenar que transformou o céu noturno em
+                                um mapa para o futuro.</p>
+                        </a>
+                    </article>
+
+                    <article class="timeline-item">
+                        <a href="#hubble-modal" class="timeline-item__link">
+                            <span class="timeline-item__year">1990</span>
+                            <h2 class="timeline-item__title">Telescópio Hubble</h2>
+                            <p class="timeline-item__description">Conheça o instrumento que mudou os livros de ciência e
+                                mostrou a idade do universo.</p>
+                        </a>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main> <footer class="final-cta">
+        <div class="container">
+            <p>Gostou desta jornada? <a href="https://jrgessiel.github.io/GESSIELdemon-profile">Veja mais dos meus projetos no meu
+                    portfólio.</a></p>
+        </div>
+    </footer>
+
+    <div id="astronomy-modal" class="modal-overlay">
+        <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="astronomy-title">
+            <a href="#" class="modal__close" aria-label="Fechar modal">&times;</a>
+            <div class="modal__content">
+                <h2 id="astronomy-title">O que é a Astronomia?</h2>
+                <p>É a ciência que estuda o universo, com suas galáxias, estrelas, planetas e diversos fenômenos. Muitos
+                    anos atrás, várias civilizações olhavam para o céu e acreditavam que estrelas, planetas e galáxias
+                    estavam associadas aos deuses e lendas, pois não possuíam o conhecimento que temos hoje.</p>
+                <p>Com o tempo, os corpos celestes tornaram-se melhor compreendidos, o que nos permitiu desenvolver
+                    calendários, estabelecer as estações e até mesmo determinar a localização dos navegadores. </p>
+                <p>Por sua causa, hoje temos satélites, telefones celulares, painéis solares e diversas tecnologias que
+                    nos ajudam no dia a dia. Estudar as estrelas e seus fenômenos é importante para saber como o universo, o
+                    nosso planeta e até mesmo nós nos formamos!</p>
+                <footer class="modal__footer">
+                    <p><strong>Gessiel Júnior</strong></p>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+    <div id="hubble-modal" class="modal-overlay">
+        <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="hubble-title">
+            <a href="#" class="modal__close" aria-label="Fechar modal">&times;</a>
+            <div class="modal__content">
+                <h2 id="hubble-title">Telescópio Hubble</h2>
+                <p>Os esforços dos astrônomos para entender o universo vão muito além de observar as estrelas aqui na
+                    Terra, pois para isso a raça humana desenvolveu um objeto que também representa o esforço de querer
+                    descobrir mais. O Hubble é o telescópio mais importante já construído, pois está no espaço e pode
+                    capturar imagens sem interferência da atmosfera terrestre.</p>
+                <p>Seu nome é uma homenagem ao astrônomo americano Edwin Powell Hubble, responsável por observar a
+                    distância das galáxias e a expansão do universo. O Hubble foi concebido em 1946, construído entre as
+                    décadas de 1970 e 1980, e colocado em órbita baixa da Terra em 1990. </p>
+                <p>Com o tempo, o Hubble passou por várias atualizações e suas imagens auxiliaram em muitas pesquisas e,
+                    embora o processo tenha
+                    sofrido com altos custos financeiros e muitos atrasos, deixa uma mensagem de que o esforço em favor
+                    da ciência nunca é em vão!</p>
+                <footer class="modal__footer">
+                    <p><strong>Gessiel Júnior</strong></p>
+                </footer>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
