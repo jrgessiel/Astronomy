@@ -232,9 +232,13 @@ body {
     background-color: var(--color-bg);
     width: 90%;
     max-width: 65rem;
+    max-height: 90vh; 
+    display: flex;    
+    flex-direction: column;
     border-radius: var(--border-radius);
     transform: scale(0.95);
     transition: all var(--transition-fast);
+    position: relative; 
 }
 
 .modal-overlay:target .modal__dialog {
@@ -343,6 +347,4 @@ html:has(.modal-overlay:target) {
         left: 4rem;
         transform: none;
     }
-
 }
-
